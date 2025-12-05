@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arithmetic Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            max-width: 400px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        button {
+            cursor: pointer;
+        }
+        .buttons button {
+            width: 48%;
+        }
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Arithmetic Operations</h2>
+
+        <label>Enter First Number:</label>
+        <input type="number" id="num1" placeholder="First number">
+
+        <label>Enter Second Number:</label>
+        <input type="number" id="num2" placeholder="Second number">
+
+        <div class="buttons">
+            <button onclick="calculate('add')">Addition</button>
+            <button onclick="calculate('sub')">Subtraction</button><br>
+            <button onclick="calculate('mul')">Multiplication</button>
+            <button onclick="calculate('div')">Division</button>
+        </div>
+
+        <p id="result">Result: </p>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            // Get values from input fields
+            let a = parseFloat(document.getElementByI

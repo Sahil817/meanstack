@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventory Management Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo-circle">IM</span>
+        <span class="brand-name">Inventory Manager</span>
+      </div>
+
+      <nav class="menu">
+        <a href="#" class="menu-item active">Dashboard</a>
+        <a href="#" class="menu-item">Products</a>
+        <a href="#" class="menu-item">Suppliers</a>
+        <a href="#" class="menu-item">Categories</a>
+        <a href="#" class="menu-item">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Logged in as:</p>
+        <strong>Admin</strong>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <h1>Inventory Dashboard</h1>
+        <div class="topbar-right">
+          <input type="text" class="search" placeholder="Search product..." />
+          <div class="user-pill">
+            <span class="user-avatar">A</span>
+            <span class="user-name">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Stats -->
+      <section class="stats">
+        <div class="stat-card">
+          <h3>Total Items</h3>
+          <p class="stat-number">245</p>
+          <span class="stat-sub">+10 today</span>
+        </div>
+        <div class="stat-card">
+          <h3>Low Stock</h3>
+          <p class="stat-number warning">12</p>
+          <span class="stat-sub">Restock soon</span>
+        </div>
+        <div class="stat-card">
+          <h3>Out of Stock</h3>
+          <p class="stat-number danger">4</p>
+          <span class="stat-sub">Critical items</span>
+        </div>
+      </section>
+
+      <!-- Main Grid -->
+      <section class="content-grid">
+
+        <!-- Inventory Table -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Inventory List</h2>
+            <div class="filters">
+              <select>
+                <option>All Categories</option>
+                <option>Electronics</option>
+                <option>Groceries</option>
+                <option>Stationery</option>
+              </select>
+              <select>
+                <option>Sort by Name</option>
+                <option>Sort by Stock</option>
+                <option>Sort by Price</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item ID</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Stock</th>
+                  <th>Unit Price</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#1001</td>
+                  <td>Wireless Mouse</td>
+                  <td>Electronics</td>
+                  <td>45</td>
+                  <td>₹499</td>
+                  <td><span class="badge success">In Stock</span></td>
+                </tr>
+                <tr>
+                  <td>#1002</td>
+                  <td>Keyboard</td>
+                  <td>Electronics</td>
+                  <td>8</td>
+                  <td>₹899</td>
+                  <td><span class="badge warning">Low Stock</span></td>
+                </tr>
+                <tr>
+                  <td>#1003</td>
+                  <td>Notebook A4</td>
+                  <td>Stationery</td>
+                  <td>0</td>
+                  <td>₹60</td>
+                  <td><span class="badge danger">Out of Stock</span></td>
+                </tr>
+                <tr>
+                  <td>#1004</td>
+                  <td>Blue Pen</td>
+                  <td>Stationery</td>
+                  <td>120</td>
+                  <td>₹10</td>
+                  <td><span class="badge success">In Stock</span></td>
+                </tr>
+                <tr>
+                  <td>#1005</td>
+                  <td>Milk 1L</td>
+                  <td>Groceries</td>
+                  <td>15</td>
+                  <td>₹55</td>
+                  <td><span class="badge warning">Low Stock</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Add / Edit Form -->
+        <div class="panel form-panel">
+          <h2>Add New Item</h2>
+          <form>
+            <div class="form-group">
+              <label for="itemName">Item Name</label>
+              <input type="text" id="itemName" placeholder="Enter item name" />
+            </div>
+
+            <div class="form-group">
+              <label for="itemCategory">Category</label>
+              <select id="itemCategory">
+                <option>Select Category</option>
+                <option>Electronics</option>
+                <option>Groceries</option>
+                <option>Stationery</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="itemStock">Stock Quantity</label>
+                <input type="number" id="itemStock" placeholder="0" />
+              </div>
+              <div class="form-group">
+                <label for="itemPrice">Unit Price (₹)</label>
+                <input type="number" id="itemPrice" placeholder="0.00" step="0.01" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Status</label>
+              <div class="status-options">
+                <label><input type="radio" name="status" checked /> In Stock</label>
+                <label><input type="radio" name="status" /> Low Stock</label>
+                <label><input type="radio" name="status" /> Out of Stock</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Save Item</button>
+          </form>
+        </div>
+
+      </section>
+
+      <footer class="footer">
+        Inventory Management UI BY SAHIL
+      </footer>
+    </main>
+
+  </div>
+</body>
+</html>

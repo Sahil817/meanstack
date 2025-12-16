@@ -1,0 +1,69 @@
+show dbs;
+use employee
+
+//Insert one employee document for "Alice Johnson" (email: alice.johnson@company.com, age: 28, department: "HR", salary: 65000).
+db.employees.insertOne({name : "Alice Johnson",
+    email : "alice.johnson@company.com",
+    age: 28,
+     department: "HR",
+        salary: 65000
+})
+
+//Insert 5 employees in one operation for Engineering department (ages 25-35, salaries 70000-95000).
+db.employees.insertMany([{
+    name : "Sahil",
+    age : 25,
+    department :"Engineering",
+    salary : 70000
+},
+{
+    name : "Ram",
+    age : 26,
+    department :"Engineering",
+    salary : 75000
+},
+{
+    name : "Shyam",
+    age : 28,
+    department :"Engineering",
+    salary : 80000
+},
+{
+    name : "Radha",
+    age : 30,
+    department :"Engineering",
+    salary : 85000
+},
+{
+    name : "Nikita",
+    age : 35,
+    department :"Engineering",
+    salary : 90000
+}
+])
+
+//Update Alice Johnson's performance_score to 4.5 using updateOne().
+db.employees.updateOne(
+    { name: "Alice Johnson" },          
+    { $set: { performance_score: 4.5 } } 
+)
+
+//Increment salary by 5000 for all active Engineering employees using updateMany().
+
+db.employees.updateMany(
+    { department: "Engineering" },          
+    { $inc: { salary: 5000 } } 
+)
+
+//crearing employee document for John Doe with projects array
+db.employees.insertOne({
+    name : "John Doe",
+    email : "john.doe@gmail.com"
+})
+//Add project "Project Gamma" (role: "Manager", status: "active") to John's projects array.
+db.employees.updateOne(
+    { name: "John Doe" },          
+    { $push: { projects: { project_name: "Project Gamma", role: "Manager", status: "active" } } } 
+)
+
+//
